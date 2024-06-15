@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Player</title>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Allerta+Stencil|Roboto+Mono';
+
+html, body {
+  background: #333;  	
+  margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	background-position: center;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+h1 {
+	color: #fff;
+	font-size: 68px;
+	font-size: 5.5vw;
+	width: 100%;
+	display: inline-flex;
+  justify-content: center;
+  letter-spacing: 8px;
+}
+h1 span:nth-child(6) {
+  margin-right: 30px;
+}
+h2 {
+	font-weight: 500;
+	font-size: 27px;
+	font-size: 2vw;
+	margin: 0 auto;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	display: block;
+}
+
+a {
+	color: #fd3267;
+}
+
+.wrapper {
+  margin-top: 100px;
+	min-height: 500px;
+}
+
+.logo {
+	text-align: center;
+	width: 100%;
+}
+
+ul.countdown {
+	margin-top: 40px;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 0;
+	width: 100%;
+}
+ul.countdown li {
+	display: inline-block;
+	margin-right: 3%;
+	text-align: center;
+}
+ul.countdown li span {
+	font-size: 72px;
+	font-size: 5.8vw;
+	width: 150px;
+	letter-spacing: 5px;
+	font-weight: 300;
+	color: #fff;
+}
+ul.countdown li p {
+	font-size: 14px;
+	margin-bottom: 0;
+}
+ul.countdown li:last-child {
+	margin-right: 0;
+}
+
+.days_ref { color: #2ECC71 }
+.hours_ref { color: #fd3267 }
+.minutes_ref { color: #9B59B6 }
+.seconds_ref { color: #3498DB }
+
+form {
+	text-align: center;
+	width: 100%;
+	margin-top: 60px;
+}
+
+form input[type="text"] {
+	width: 22%;
+	padding: 16px;
+	font-size: 0.85em;
+	color: #fff;
+	outline: none;
+	font-weight: 600;
+	background: none;
+	border: 1px solid#FFFFFF;
+	transition: border-color 0.5s;
+}
+
+form input[type="text"]:focus{
+	background: rgba(255,255,255, 0.3);
+}
+
+form input[type="submit"] {
+	border: 1px solid #FD3267;
+	padding: 16px 16px;
+	font-size: 0.85em;
+	transition: 0.5s all;
+	background: none;
+	color: #FD3267;
+	outline: none;
+	cursor: pointer;
+	margin-left: 15px;
+}
+
+form input[type="submit"]:hover {
+	border: 1px solid #D11250;
+	color: #D11250;
+}
+
+@media screen and (max-width: 500px) {
+	h2 {
+		font-size: 3.5vw
+	}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <h1 class="title">
+    <span style="color: #fd3267">C</span>
+    <span style="color: #66D9EF">o</span>
+    <span style="color: #A6E22E">m</span>
+    <span style="color: #FD971F">i</span>
+    <span style="color: #9B59B6">n</span>
+    <span style="color: #1ABC9C">g</span>
+    
+    <span style="color: #A6E22E">s</span>
+    <span style="color: #fd3267">o</span>
+    <span style="color: #fd3267">o</span>
+    <span style="color: #3498DB">n</span>
+    <span style="color: #9B59B6">!</span>
+  </h1>
+  <h2 class="subtitle">
+    <span>Be</span> 
+    <span>ready,</span>
+    <span>there</span>
+    <span>is just:</span>
+  </h2>
+
+  
+<script>
+// ====================================
+// Created for codepad.co
+// https://codepad.co/snippet/TDgT3u4K
+// ====================================
+
+$(document).ready(function(){   
+  // Get the date
+  function e() {
+      var e = new Date;
+      e.setDate(e.getDate() + 20);
+
+      var dd = e.getDate();
+      var mm = e.getMonth() + 1;
+      var y = e.getFullYear();
+
+      var futureFormattedDate = mm + "/" + dd + "/" + y + ' 12:00:00';
+
+      return futureFormattedDate;
+  }
+
+  $('.countdown').downCount({
+      date: e(),
+      offset: -4
+  });
+}); 
